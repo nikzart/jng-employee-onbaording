@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Onboarding - Jilz and Ganze Innovators</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header class="form-header">
+            <img src="jng-logo.png" alt="Jilz and Ganze Innovators" class="logo">
+            <h1>Employee Onboarding Form</h1>
+            <p class="subtitle">Join our team of innovators shaping the future of AI-driven solutions</p>
+        </header>
+
+        <div class="progress-container">
+            <div class="progress-bar" id="progressBar"></div>
+        </div>
+
+        <form id="onboardingForm">
+            <!-- Personal Information Section -->
+            <div class="form-section active" data-section="1">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <div>
+                        <h2>Personal Information</h2>
+                        <p class="section-desc">Let's start with your basic details</p>
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group full-width">
+                        <label for="fullName">
+                            <i class="fas fa-user-circle"></i>
+                            Full Name <span class="required">*</span>
+                        </label>
+                        <input type="text" id="fullName" name="fullName" required>
+                        <span class="error-message"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="dob">
+                            <i class="fas fa-calendar-alt"></i>
+                            Date of Birth <span class="required">*</span>
+                        </label>
+                        <input type="date" id="dob" name="dob" required>
+                        <span class="error-message"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="contactNumber">
+                            <i class="fas fa-phone"></i>
+                            Contact Number <span class="required">*</span>
+                        </label>
+                        <input type="tel" id="contactNumber" name="contactNumber" placeholder="+91 XXXXX XXXXX" required>
+                        <span class="error-message"></span>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="email">
+                            <i class="fas fa-envelope"></i>
+                            Email Address <span class="required">*</span>
+                        </label>
+                        <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                        <span class="error-message"></span>
+                    </div>
+                </div>
+
+                <div class="section-actions">
+                    <button type="button" class="btn btn-next" onclick="nextSection(2)">
+                        Next <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Educational Background Section -->
+            <div class="form-section" data-section="2">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <div>
+                        <h2>Educational Background</h2>
+                        <p class="section-desc">Tell us about your educational qualifications</p>
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group full-width">
+                        <label for="education">
+                            <i class="fas fa-award"></i>
+                            Highest Educational Qualification <span class="required">*</span>
+                        </label>
+                        <input type="text" id="education" name="education" placeholder="e.g., B.Tech in Computer Science" required>
+                        <span class="error-message"></span>
+                    </div>
+                </div>
+
+                <div class="section-actions">
+                    <button type="button" class="btn btn-back" onclick="prevSection(1)">
+                        <i class="fas fa-arrow-left"></i> Back
+                    </button>
+                    <button type="button" class="btn btn-next" onclick="nextSection(3)">
+                        Next <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Professional Experience Section -->
+            <div class="form-section" data-section="3">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div>
+                        <h2>Professional Experience</h2>
+                        <p class="section-desc">Share your work experience details</p>
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="currentCompany">
+                            <i class="fas fa-building"></i>
+                            Current Company Name <span class="required">*</span>
+                        </label>
+                        <input type="text" id="currentCompany" name="currentCompany" required>
+                        <span class="error-message"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="previousCompany">
+                            <i class="fas fa-history"></i>
+                            Previous Company Name
+                        </label>
+                        <input type="text" id="previousCompany" name="previousCompany" placeholder="If any">
+                        <span class="error-message"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="experience">
+                            <i class="fas fa-chart-line"></i>
+                            Years of Experience <span class="required">*</span>
+                        </label>
+                        <input type="number" id="experience" name="experience" min="0" step="0.5" placeholder="e.g., 3.5" required>
+                        <span class="error-message"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="designation">
+                            <i class="fas fa-user-tie"></i>
+                            Current Designation <span class="required">*</span>
+                        </label>
+                        <input type="text" id="designation" name="designation" placeholder="e.g., Senior Software Engineer" required>
+                        <span class="error-message"></span>
+                    </div>
+                </div>
+
+                <div class="section-actions">
+                    <button type="button" class="btn btn-back" onclick="prevSection(2)">
+                        <i class="fas fa-arrow-left"></i> Back
+                    </button>
+                    <button type="button" class="btn btn-next" onclick="nextSection(4)">
+                        Next <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Notice Period & Availability Section -->
+            <div class="form-section" data-section="4">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <div>
+                        <h2>Notice Period & Availability</h2>
+                        <p class="section-desc">Help us understand your availability</p>
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group full-width">
+                        <label>
+                            <i class="fas fa-question-circle"></i>
+                            Are you currently on notice period? <span class="required">*</span>
+                        </label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="onNoticePeriod" value="yes" required>
+                                <span class="radio-custom"></span>
+                                Yes
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="onNoticePeriod" value="no" required>
+                                <span class="radio-custom"></span>
+                                No
+                            </label>
+                        </div>
+                        <span class="error-message"></span>
+                    </div>
+
+                    <!-- Conditional: If YES - How many days -->
+                    <div class="form-group conditional-field full-width" id="noticeDaysGroup" style="display: none;">
+                        <label for="noticeDays">
+                            <i class="fas fa-calendar-check"></i>
+                            How many days remaining in notice period? <span class="required">*</span>
+                        </label>
+                        <input type="number" id="noticeDays" name="noticeDays" min="0" placeholder="e.g., 30">
+                        <span class="error-message"></span>
+                    </div>
+
+                    <!-- Conditional: If NO - What's the notice period -->
+                    <div class="form-group conditional-field full-width" id="noticePeriodDurationGroup" style="display: none;">
+                        <label for="noticePeriodDuration">
+                            <i class="fas fa-hourglass-half"></i>
+                            What's your notice period? <span class="required">*</span>
+                        </label>
+                        <input type="text" id="noticePeriodDuration" name="noticePeriodDuration" placeholder="e.g., 60 days, 2 months">
+                        <span class="error-message"></span>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label for="joiningDate">
+                            <i class="fas fa-calendar-plus"></i>
+                            How soon can you join? <span class="required">*</span>
+                        </label>
+                        <input type="text" id="joiningDate" name="joiningDate" placeholder="e.g., Immediate, 15 days, 1 month" required>
+                        <span class="error-message"></span>
+                    </div>
+                </div>
+
+                <div class="section-actions">
+                    <button type="button" class="btn btn-back" onclick="prevSection(3)">
+                        <i class="fas fa-arrow-left"></i> Back
+                    </button>
+                    <button type="button" class="btn btn-next" onclick="nextSection(5)">
+                        Next <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Compensation Section -->
+            <div class="form-section" data-section="5">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="fas fa-rupee-sign"></i>
+                    </div>
+                    <div>
+                        <h2>Compensation Details</h2>
+                        <p class="section-desc">Share your salary expectations</p>
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="currentCtc">
+                            <i class="fas fa-money-bill-wave"></i>
+                            Current CTC (Annual) <span class="required">*</span>
+                        </label>
+                        <input type="text" id="currentCtc" name="currentCtc" placeholder="e.g., ₹8,00,000" required>
+                        <span class="error-message"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="expectedCtc">
+                            <i class="fas fa-hand-holding-usd"></i>
+                            Expected CTC (Annual) <span class="required">*</span>
+                        </label>
+                        <input type="text" id="expectedCtc" name="expectedCtc" placeholder="e.g., ₹12,00,000" required>
+                        <span class="error-message"></span>
+                    </div>
+                </div>
+
+                <div class="section-actions">
+                    <button type="button" class="btn btn-back" onclick="prevSection(4)">
+                        <i class="fas fa-arrow-left"></i> Back
+                    </button>
+                    <button type="button" class="btn btn-next" onclick="nextSection(6)">
+                        Next <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Document Availability Section -->
+            <div class="form-section" data-section="6">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div>
+                        <h2>Document Availability</h2>
+                        <p class="section-desc">Confirm you can provide these documents upon job confirmation</p>
+                    </div>
+                </div>
+
+                <div class="document-checklist">
+                    <div class="checkbox-item">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="docEducation" value="yes" required>
+                            <span class="checkbox-custom"></span>
+                            <div class="checkbox-content">
+                                <i class="fas fa-certificate"></i>
+                                <span>Highest Educational Certificate</span>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="checkbox-item">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="docExperience" value="yes" required>
+                            <span class="checkbox-custom"></span>
+                            <div class="checkbox-content">
+                                <i class="fas fa-briefcase"></i>
+                                <span>Experience Letter for Previous Employments</span>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="checkbox-item">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="docRelieving" value="yes" required>
+                            <span class="checkbox-custom"></span>
+                            <div class="checkbox-content">
+                                <i class="fas fa-file-signature"></i>
+                                <span>Relieving Letter for Previous Employments</span>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="checkbox-item">
+                        <label class="checkbox-label">
+                            <input type="checkbox" name="docPayslips" value="yes" required>
+                            <span class="checkbox-custom"></span>
+                            <div class="checkbox-content">
+                                <i class="fas fa-receipt"></i>
+                                <span>Last 3 Months Payslips</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="section-actions">
+                    <button type="button" class="btn btn-back" onclick="prevSection(5)">
+                        <i class="fas fa-arrow-left"></i> Back
+                    </button>
+                    <button type="button" class="btn btn-next" onclick="nextSection(7)">
+                        Next <i class="fas fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Relocation & Travel Section -->
+            <div class="form-section" data-section="7">
+                <div class="section-header">
+                    <div class="section-icon">
+                        <i class="fas fa-plane"></i>
+                    </div>
+                    <div>
+                        <h2>Relocation & Travel</h2>
+                        <p class="section-desc">Final questions about relocation and travel requirements</p>
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group full-width">
+                        <label>
+                            <i class="fas fa-map-marker-alt"></i>
+                            Will you be ready to relocate to Bangalore? <span class="required">*</span>
+                        </label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="relocate" value="yes" required>
+                                <span class="radio-custom"></span>
+                                Yes
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="relocate" value="no" required>
+                                <span class="radio-custom"></span>
+                                No
+                            </label>
+                        </div>
+                        <span class="error-message"></span>
+                    </div>
+
+                    <div class="form-group full-width">
+                        <label>
+                            <i class="fas fa-globe-americas"></i>
+                            This job requires occasional travelling (domestic/international) for conclaves, tech meetings, and conferences. Will you be ready for travel? <span class="required">*</span>
+                        </label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="travel" value="yes" required>
+                                <span class="radio-custom"></span>
+                                Yes, I'm ready to travel
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="travel" value="no" required>
+                                <span class="radio-custom"></span>
+                                No
+                            </label>
+                        </div>
+                        <span class="error-message"></span>
+                    </div>
+                </div>
+
+                <div class="section-actions">
+                    <button type="button" class="btn btn-back" onclick="prevSection(6)">
+                        <i class="fas fa-arrow-left"></i> Back
+                    </button>
+                    <button type="submit" class="btn btn-submit">
+                        <i class="fas fa-paper-plane"></i> Submit Application
+                    </button>
+                </div>
+            </div>
+        </form>
+
+        <!-- Success Modal -->
+        <div id="successModal" class="modal">
+            <div class="modal-content">
+                <div class="success-icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <h2>Application Submitted Successfully!</h2>
+                <p>Thank you for your interest in joining Jilz and Ganze Innovators. We'll review your application and get back to you soon.</p>
+                <button class="btn btn-primary" onclick="closeModal()">Close</button>
+            </div>
+        </div>
+
+        <!-- Loading Overlay -->
+        <div id="loadingOverlay" class="loading-overlay">
+            <div class="spinner"></div>
+            <p>Submitting your application...</p>
+        </div>
+    </div>
+
+    <!-- EmailJS SDK (optional - for email functionality) -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+    <script src="script.js"></script>
+</body>
+</html>

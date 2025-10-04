@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #E8DED3 0%, #F5F1ED 100%);
+            padding: 20px;
+            color: #1A1A1A;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .header {
+            background: #FFFFFF;
+            padding: 30px;
+            text-align: center;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        .company-name {
+            font-size: 24px;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 15px;
+            letter-spacing: -0.5px;
+        }
+        .badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #5B8FD8 0%, #4A7AC4 100%);
+            color: #FFFFFF;
+            padding: 8px 20px;
+            border-radius: 50px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .section {
+            background: #FFFFFF;
+            border-radius: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            overflow: hidden;
+        }
+        .section-header {
+            background: linear-gradient(135deg, #5B8FD8 0%, #4A7AC4 100%);
+            color: #FFFFFF;
+            padding: 15px 25px;
+            font-size: 16px;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .section-icon {
+            font-size: 20px;
+        }
+        .section-body {
+            padding: 25px;
+        }
+        .field-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px 20px;
+        }
+        .field-full {
+            grid-column: 1 / -1;
+        }
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+        }
+        .field-label {
+            font-weight: 600;
+            color: #666666;
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .field-value {
+            color: #1A1A1A;
+            font-size: 14px;
+            font-weight: 500;
+            padding: 8px 12px;
+            background: #F5F1ED;
+            border-radius: 8px;
+            border: 1px solid #E8DED3;
+        }
+        .status-yes {
+            color: #27AE60;
+            font-weight: 600;
+        }
+        .status-no {
+            color: #E74C3C;
+            font-weight: 600;
+        }
+        .ctc-section {
+            background: linear-gradient(135deg, #E8DED3 0%, #F5F1ED 100%);
+            border: 2px solid #5B8FD8;
+            border-radius: 15px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .ctc-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+        .ctc-item {
+            text-align: center;
+        }
+        .ctc-label {
+            font-weight: 600;
+            color: #666666;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+        .ctc-value {
+            color: #5B8FD8;
+            font-size: 20px;
+            font-weight: 700;
+        }
+        .doc-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+        .doc-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 12px;
+            background: #F5F1ED;
+            border-radius: 8px;
+            font-size: 13px;
+        }
+        .footer {
+            background: #FFFFFF;
+            padding: 20px;
+            text-align: center;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        .footer-text {
+            font-size: 12px;
+            color: #666666;
+        }
+        .timestamp {
+            font-size: 11px;
+            color: #999999;
+            margin-top: 10px;
+        }
+        @media only screen and (max-width: 600px) {
+            body {
+                padding: 10px;
+            }
+            .field-grid,
+            .ctc-grid,
+            .doc-grid {
+                grid-template-columns: 1fr;
+            }
+            .section-body {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <div class="company-name">JILZ AND GANZE INNOVATORS PVT LTD</div>
+            <div class="badge">New Application Received</div>
+        </div>
+
+        <!-- Personal Information -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">👤</span>
+                <span>Personal Information</span>
+            </div>
+            <div class="section-body">
+                <div class="field-grid">
+                    <div class="field">
+                        <div class="field-label">Full Name</div>
+                        <div class="field-value">{{fullName}}</div>
+                    </div>
+                    <div class="field">
+                        <div class="field-label">Date of Birth</div>
+                        <div class="field-value">{{dob}}</div>
+                    </div>
+                    <div class="field">
+                        <div class="field-label">Contact Number</div>
+                        <div class="field-value">{{contactNumber}}</div>
+                    </div>
+                    <div class="field">
+                        <div class="field-label">Email Address</div>
+                        <div class="field-value">{{email}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Educational Background -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🎓</span>
+                <span>Educational Background</span>
+            </div>
+            <div class="section-body">
+                <div class="field field-full">
+                    <div class="field-label">Highest Qualification</div>
+                    <div class="field-value">{{education}}</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Professional Experience -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">💼</span>
+                <span>Professional Experience</span>
+            </div>
+            <div class="section-body">
+                <div class="field-grid">
+                    <div class="field">
+                        <div class="field-label">Current Company</div>
+                        <div class="field-value">{{currentCompany}}</div>
+                    </div>
+                    <div class="field">
+                        <div class="field-label">Previous Company</div>
+                        <div class="field-value">{{previousCompany}}</div>
+                    </div>
+                    <div class="field">
+                        <div class="field-label">Years of Experience</div>
+                        <div class="field-value">{{experience}} years</div>
+                    </div>
+                    <div class="field">
+                        <div class="field-label">Current Designation</div>
+                        <div class="field-value">{{designation}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Notice Period & Availability -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">⏰</span>
+                <span>Notice Period & Availability</span>
+            </div>
+            <div class="section-body">
+                <div class="field-grid">
+                    <div class="field">
+                        <div class="field-label">On Notice Period</div>
+                        <div class="field-value">{{onNoticePeriod}}</div>
+                    </div>
+                    <div class="field">
+                        <div class="field-label">Days Remaining / Notice Period</div>
+                        <div class="field-value">{{noticePeriodDetails}}</div>
+                    </div>
+                    <div class="field field-full">
+                        <div class="field-label">Can Join From</div>
+                        <div class="field-value">{{joiningDate}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Compensation -->
+        <div class="ctc-section">
+            <div class="ctc-grid">
+                <div class="ctc-item">
+                    <div class="ctc-label">💵 Current CTC</div>
+                    <div class="ctc-value">{{currentCtc}}</div>
+                </div>
+                <div class="ctc-item">
+                    <div class="ctc-label">💸 Expected CTC</div>
+                    <div class="ctc-value">{{expectedCtc}}</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Document Availability -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">📑</span>
+                <span>Document Availability</span>
+            </div>
+            <div class="section-body">
+                <div class="doc-grid">
+                    <div class="doc-item">
+                        <span>{{docEducation}}</span>
+                        <span>Educational Certificate</span>
+                    </div>
+                    <div class="doc-item">
+                        <span>{{docExperience}}</span>
+                        <span>Experience Letter</span>
+                    </div>
+                    <div class="doc-item">
+                        <span>{{docRelieving}}</span>
+                        <span>Relieving Letter</span>
+                    </div>
+                    <div class="doc-item">
+                        <span>{{docPayslips}}</span>
+                        <span>Last 3 Months Payslips</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Relocation & Travel -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-icon">🌍</span>
+                <span>Relocation & Travel</span>
+            </div>
+            <div class="section-body">
+                <div class="field-grid">
+                    <div class="field">
+                        <div class="field-label">Relocate to Bangalore</div>
+                        <div class="field-value">{{relocate}}</div>
+                    </div>
+                    <div class="field">
+                        <div class="field-label">Travel Readiness</div>
+                        <div class="field-value">{{travel}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div class="footer-text">Jilz and Ganze Innovators Private Limited</div>
+            <div class="timestamp">📅 Submitted on {{submissionDate}}</div>
+        </div>
+    </div>
+</body>
+</html>
